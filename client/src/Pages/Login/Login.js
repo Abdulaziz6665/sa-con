@@ -24,7 +24,7 @@ function Login() {
         if (submit && username && password) {
 
             ;(async () => {
-                const response = await fetch(`/login`, {
+                const response = await fetch(`https://sa-con.herokuapp.com/login`, {
                     method: 'post',
                     headers: {
                         'Content-type': 'application/json'

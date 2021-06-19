@@ -26,7 +26,7 @@ function SignUp() {
         if (submit && username && password) {
 
             ;(async () => {
-                const res = await fetch(`/signup`, {
+                const res = await fetch(`https://sa-con.herokuapp.com/signup`, {
                     method: 'post',
                     headers: {
                         'Content-type': 'application/json'
