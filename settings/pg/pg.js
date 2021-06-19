@@ -12,7 +12,7 @@ const devConfig = `postgresql://${host.user}:${host.password}@${host.host}:${hos
 const proConfig = 'postgres://binbbywu:aRsOFdlo7JesJrd1yUanrmKQgzO9mnJc@batyr.db.elephantsql.com/binbbywu'
 
 const pool = new Pool({
-    connectionString: process.env.NODE_ENV === 'production' ? devConfig : proConfig
+    connectionString: process.env.NODE_ENV === 'production' ? proConfig : devConfig
 })
 
 
