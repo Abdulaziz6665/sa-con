@@ -55,8 +55,8 @@ function SignUp() {
 
     return (
         <>
-            <button onClick={() => setPathname('/')}>Home</button>
-            <h1 className='title'>Do you want to save your contacts?</h1>
+            <button className='universal-btn' onClick={() => setPathname('/')}>Home</button>
+            <h1 className='title'>Sign up for free !!!</h1>
             <div className='container-form'>
                     {err}
                 <div className='form-wrapper'>
@@ -68,13 +68,13 @@ function SignUp() {
                         
                     }}
                     >
-                        <label htmlFor="user">username
-                            <input ref={usernameRef} id='user' type="text" spellCheck='off' autoComplete='off' required/>
+                        <label htmlFor="user">
+                            <input ref={usernameRef} className='form-input' id='user' type="text" spellCheck='off' autoComplete='off' placeholder='Username' required/>
                         </label>
-                        <label htmlFor="pass">password
-                            <input ref={passwordRef} id='pass' type="text" spellCheck='off' autoComplete='off' required/>
+                        <label htmlFor="pass">
+                            <input ref={passwordRef} className='form-input' id='pass' type="text" spellCheck='off' autoComplete='off' placeholder='Password' required/>
                         </label>
-                        <button>SignUp</button>
+                        <button className='universal-btn'>SignUp</button>
                     </form>
                 </div>
             </div>

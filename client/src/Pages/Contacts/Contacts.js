@@ -85,11 +85,11 @@ function Contacts () {
 
     return (
         <>
-            <button onClick={() => {
+            <button className='universal-btn' onClick={() => {
                 setPathname(true)
                 setData(null)
             }}>Sign out</button>
-            <h1>Contacts page</h1>
+            <h1 className='contact-title'>Contacts page</h1>
             <div className='contact-edit'>
 
                 <form 
@@ -110,7 +110,7 @@ function Contacts () {
                         <input className='form-input' onChange={e => setEmail(e.target.value)} type="text" placeholder='Optional' name='email' spellCheck='off' autoComplete='off' />
                     </div>
                     <div className='form-btn-wrapper'>
-                        <button>Add contact</button>
+                        <button className='universal-btn'>Add contact</button>
                     </div>
                 </form>
             </div>
@@ -119,9 +119,9 @@ function Contacts () {
                 <div className='sss'>
                    { info.map((e, key) => (
                     <div className='ddd' key={key}>
-                        <span>{e.user_username}</span>
-                        <span>{e.user_phone}</span>
-                        <span>{e.user_email || 'empty'}</span>
+                        <span>name: {e.user_username}</span>
+                        <span>phone: <a className='user-phone' href={`tel: ${e.user_phone}`}>{e.user_phone}</a></span>
+                        <span>opt: {e.user_email || 'empty'}</span>
                     </div>
                     ))
                    }

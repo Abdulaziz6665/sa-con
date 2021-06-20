@@ -41,6 +41,19 @@ code {
   cursor: pointer;
 }
 
+.universal-btn {
+  background: none;
+  color: #222;
+  border: none;
+  border: 2px solid #fff;
+  box-shadow: 0 0 3px 1px #222;
+  border-radius: 8px;
+  margin: 5px;
+  padding: 7px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
 .rrr {
   display: flex;
   justify-content: center;
@@ -53,6 +66,10 @@ code {
   font-size: 60px;
 }
 
+.contact-title {
+  margin-left: 20px;
+}
+
 .form-wrapper {
   width: 100%;
   display: flex;
@@ -63,6 +80,14 @@ code {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.form-input {
+  margin: 5px;
+  padding: 10px;
+  border: 1px solid rgba(34, 34, 34, 0.5);
+  border-radius: 5px;
+  font-size: 20px;
 }
 
 .contact-edit {
@@ -79,7 +104,7 @@ code {
   margin: 10px;
 }
 
-.form-input {
+.contacts-input {
   padding: 10px 15px;
   font-size: 18px;
 }
@@ -98,12 +123,21 @@ code {
   flex-wrap: wrap;
   flex-grow: 1;
   flex-shrink: 0;
-  width: 150px;
-  margin: 45px;
-  background-color: #eee;
+  width: 250px;
+  padding: 30px;
+  border: 1px solid rgba(34, 34, 34, 0.4);
+  color: #222;
 }
 
 .ddd span {
   display: block;
+  flex-grow: 1;
+  padding: 3px;
   width: 100%;
+  font-size: 18px;
+  border-bottom: 2px solid #ccc;
+}
+
+.user-phone {
+  text-decoration: none;
 }
