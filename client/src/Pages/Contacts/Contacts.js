@@ -1,10 +1,11 @@
 import { Redirect } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { useData } from '../../Context/Context'
 
 function Contacts () {
     
     const [data, setData, url] = useData()
+    const focus = useRef()
     
     const [info, setInfo] = useState()
     const [del, setDel] = useState()
@@ -118,11 +119,12 @@ function Contacts () {
                         onSubmit={e => {
                         e.preventDefault()
                         setSucces(true)
+                        focus.current.focus()
                         e.target.reset()
                     }}
                 >
                     <div>
-                        <input className='form-input' onChange={e => setName(e.target.value)} type="text" placeholder='Enter name' name='user' spellCheck='off' autoComplete='off' autoFocus={true} required />
+                        <input ref={focus} className='form-input' onChange={e => setName(e.target.value)} type="text" placeholder='Enter name' name='user' spellCheck='off' autoComplete='off' autoFocus={true} required />
                     </div>
                     <div>
                         <input className='form-input' onChange={e => setPhone(e.target.value)} type="text" placeholder='Phone number' name='phone' spellCheck='off' autoComplete='off' required />
