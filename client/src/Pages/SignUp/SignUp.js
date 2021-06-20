@@ -5,7 +5,7 @@ import { useData } from '../../Context/Context'
 
 function SignUp() {
 
-    const [data, setData] = useData()
+    const [data, setData, url] = useData()
 
     const usernameRef = useRef('')
     const passwordRef = useRef('')
@@ -19,14 +19,11 @@ function SignUp() {
 
     const [path, setPathname] = useState()
 
-    
-
-
     useEffect(() => {
         if (submit && username && password) {
 
             ;(async () => {
-                const res = await fetch(`https://sa-con.herokuapp.com/signup`, {
+                const res = await fetch(`${url}/signup`, {
                     method: 'post',
                     headers: {
                         'Content-type': 'application/json'
@@ -46,7 +43,7 @@ function SignUp() {
             setSubmit(false)
         }
 
-    }, [submit, username, password, setErr, setData])
+    }, [submit, username, password, setErr, setData, url])
 
     if (succes && data) {
         return <Redirect to={'/contacts'}/>

@@ -4,7 +4,7 @@ const host = {
     host: 'localhost',
     database: 'contacts',
     user: 'postgres',
-    password: '3536665Aaa',
+    password: '6665',
     port: 5432
 }
 const devConfig = `postgresql://${host.user}:${host.password}@${host.host}:${host.port}/${host.database}`

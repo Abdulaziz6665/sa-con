@@ -3,16 +3,16 @@ import { useEffect, useState } from 'react'
 import { useData } from '../../Context/Context'
 
 function Contacts () {
-
-    const [data, setData] = useData()
-
+    
+    const [data, setData, url] = useData()
+    
     const [info, setInfo] = useState()
-
+    
     const [name, setName] = useState()
     const [phone, setPhone] = useState()
     const [email, setEmail] = useState(null)
     const [succes, setSucces] = useState(false)
-
+    
     const [path, setPathname] = useState(false)
     
     useEffect(() => {
@@ -22,7 +22,7 @@ function Contacts () {
 
             ;(async () => {
     
-                const res = await fetch(`https://sa-con.herokuapp.com/contacts`, {
+                const res = await fetch(`${url}/contacts`, {
                     method: 'post',
                     headers: {
                         'Content-type': 'application/json'
@@ -37,7 +37,7 @@ function Contacts () {
             })()
         }
 
-    }, [data, setInfo])
+    }, [data, setInfo, url])
 
     useEffect(() => {
         
@@ -49,10 +49,11 @@ function Contacts () {
     }, [data, setData])
 
     useEffect(() => {
+
         if (name && phone && succes) {
             
             ;(async () => {
-                const res = await fetch(`https://sa-con.herokuapp.com/contacts`, {
+                const res = await fetch(`${url}/contacts`, {
                     method: 'post',
                     headers: {
                         'Content-type': 'application/json'
@@ -74,7 +75,7 @@ function Contacts () {
             setPhone(null)
             setEmail(null)
         }
-    }, [data, name, phone, email, succes])
+    }, [data, name, phone, email, succes, url])
 
     if (path) {
         window.localStorage.removeItem('data')
