@@ -15,7 +15,7 @@ function Provider ({children}) {
 
 function useData () {
     const {protocol, hostname, port} = window.location
-    const urlToFetch = `${protocol}//${hostname}${port ? ':5000' : null}`
+    const urlToFetch = `${protocol}//${hostname}${port ? ':5000' : ''}`
     
     const { data, setData } = useContext(context)
 
