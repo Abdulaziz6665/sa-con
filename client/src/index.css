@@ -17,6 +17,7 @@ code {
   max-width: 1440px;
   margin-right: auto;
   margin-left: auto;
+  padding-top: 20px;
   padding-left: 20px;
   padding-right: 20px;
 }
@@ -44,6 +45,7 @@ code {
   display: flex;
   justify-content: center;
   width: 50%;
+  border: 2px solid #fff;
 }
 
 .title {
@@ -70,10 +72,20 @@ code {
 
 .form-contact {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .form-contact div {
-  margin-right: 15px;
+  margin: 10px;
+}
+
+.form-input {
+  padding: 10px 15px;
+  font-size: 18px;
+}
+
+.form-btn-wrapper {
+  width: 100%;
 }
 
 .sss {

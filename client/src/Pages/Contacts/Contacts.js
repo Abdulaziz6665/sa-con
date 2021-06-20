@@ -100,15 +100,15 @@ function Contacts () {
                     }}
                 >
                     <div>
-                        <input onChange={e => setName(e.target.value)} type="text" placeholder='Enter name' name='user' spellCheck='off' autoComplete='off' autoFocus={true} required />
+                        <input className='form-input' onChange={e => setName(e.target.value)} type="text" placeholder='Enter name' name='user' spellCheck='off' autoComplete='off' autoFocus={true} required />
                     </div>
                     <div>
-                        <input onChange={e => setPhone(e.target.value)} type="text" placeholder='Phone number' name='phone' spellCheck='off' autoComplete='off' required />
+                        <input className='form-input' onChange={e => setPhone(e.target.value)} type="text" placeholder='Phone number' name='phone' spellCheck='off' autoComplete='off' required />
                     </div>
                     <div>
-                        <input onChange={e => setEmail(e.target.value)} type="text" placeholder='Optional' name='email' spellCheck='off' autoComplete='off' />
+                        <input className='form-input' onChange={e => setEmail(e.target.value)} type="text" placeholder='Optional' name='email' spellCheck='off' autoComplete='off' />
                     </div>
-                    <div>
+                    <div className='form-btn-wrapper'>
                         <button>Add contact</button>
                     </div>
                 </form>
