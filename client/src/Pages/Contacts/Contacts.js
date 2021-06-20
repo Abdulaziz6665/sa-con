@@ -82,26 +82,27 @@ function Contacts () {
 
         if(del) {
             ;(async () => {
-                await fetch(`${url}/contacts`, {
+                const res = await fetch(`${url}/contacts`, {
                     method: 'delete',
                     headers: {
                      'Content-type': 'application/json'
                     },
                     body: JSON.stringify({
-                     del
+                     del,
+                     data
                     })
                 })
+                const json = await res.json()
+                setInfo(json)
             })()
         }
 
-    }, [url, del])
+    }, [url, del, setInfo, data])
 
     if (path) {
         window.localStorage.removeItem('data')
         return <Redirect to = {'/'}/>
     }
-
-
 
     return (
         <>
@@ -139,10 +140,7 @@ function Contacts () {
                 <div className='sss'>
                    { info.map((e, key) => (
                     <div className='ddd' key={key}>
-                        <button className='delete-btn' onClick={() => {
-                            setDel(e.user_id)
-                            window.location.reload()
-                        }}>&#10008;</button>
+                        <button className='delete-btn' onClick={() => setDel(e.user_id)}>&#10008;</button>
                         <span>name: {e.user_username}</span>
                         <span>phone: <a className='user-phone' href={`tel: ${e.user_phone}`}>{e.user_phone}</a></span>
                         <span>opt: {e.user_email || 'empty'}</span>
