@@ -34,4 +34,6 @@ app.post('/login', routes.routeLogin)
 
 app.post('/contacts', routes.routeContacts)
 
+app.delete('/contacts', routes.deleteContacts)
+
 app.listen(PORT, () => console.log('server is running ' + PORT))

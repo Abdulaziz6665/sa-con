@@ -7,6 +7,7 @@ function Contacts () {
     const [data, setData, url] = useData()
     
     const [info, setInfo] = useState()
+    const [del, setDel] = useState()
     
     const [name, setName] = useState()
     const [phone, setPhone] = useState()
@@ -77,10 +78,29 @@ function Contacts () {
         }
     }, [data, name, phone, email, succes, url])
 
+    useEffect(() => {
+
+        if(del) {
+            ;(async () => {
+                await fetch(`${url}/contacts`, {
+                    method: 'delete',
+                    headers: {
+                     'Content-type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                     del
+                    })
+                })
+            })()
+        }
+
+    }, [url, del])
+
     if (path) {
         window.localStorage.removeItem('data')
         return <Redirect to = {'/'}/>
     }
+
 
 
     return (
@@ -119,6 +139,10 @@ function Contacts () {
                 <div className='sss'>
                    { info.map((e, key) => (
                     <div className='ddd' key={key}>
+                        <button className='delete-btn' onClick={() => {
+                            setDel(e.user_id)
+                            window.location.reload()
+                        }}>&#10008;</button>
                         <span>name: {e.user_username}</span>
                         <span>phone: <a className='user-phone' href={`tel: ${e.user_phone}`}>{e.user_phone}</a></span>
                         <span>opt: {e.user_email || 'empty'}</span>

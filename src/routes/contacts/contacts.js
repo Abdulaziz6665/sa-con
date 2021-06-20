@@ -7,6 +7,7 @@ const INSERT_CONTACTS = `
 
 const FIND_USER_CONTACTS = `
     select distinct
+        c.user_id,
         c.user_username,
         c.user_phone,
         c.user_email
@@ -14,6 +15,14 @@ const FIND_USER_CONTACTS = `
         user_contacts as c
     join users as u on $1 = c.contacts_id
     order by c.user_username
+    ;
+`
+
+const DELETE_CONTACT = `
+    delete from 
+        user_contacts
+    where user_id = $1 returning *
+    ;
 `
 
 async function routeContacts (req, res) {
@@ -30,4 +39,14 @@ async function routeContacts (req, res) {
      }
 }
 
+async function deleteContacts (req, res) {
+    const { del, data } = req.body
+    try {
+        await pg(DELETE_CONTACT, del)
+        const result = await pg(FIND_USER_CONTACTS, data.user_id)
+        res.send(result)
+    } catch (e){}
+}
+
 module.exports.routeContacts = routeContacts
+module.exports.deleteContacts = deleteContacts
