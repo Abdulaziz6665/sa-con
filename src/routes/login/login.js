@@ -13,7 +13,7 @@ async function routeLogin (req, res) {
     
     try {
         const result = await pg(FIND_USER, username, password)
-        return res.send({res: result[0], succes: true, mass: 'user not found'})
+        return res.send({res: result[0], succes: true, mass: result[0] ? null : 'user not found'})
     } catch (e) {
         console.log(e.message)
         return res.send({mass: 'User alreary exits'})

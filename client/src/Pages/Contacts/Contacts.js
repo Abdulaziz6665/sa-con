@@ -84,7 +84,10 @@ function Contacts () {
 
     return (
         <>
-            <button onClick={() => setPathname(true)}>Sign out</button>
+            <button onClick={() => {
+                setPathname(true)
+                setData(null)
+            }}>Sign out</button>
             <h1>Contacts page</h1>
             <div className='contact-edit'>
 

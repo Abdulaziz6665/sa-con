@@ -13,7 +13,7 @@ async function routeSignup (req, res) {
         return res.send({succes: true, json: response[0]})
     } catch (e) {
         console.log(e.message)
-        return res.send({mass: e.message})
+        return res.send({mass: 'User alreary exits'})
     }
 }
 

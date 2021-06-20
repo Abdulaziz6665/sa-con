@@ -34,9 +34,4 @@ app.post('/login', routes.routeLogin)
 
 app.post('/contacts', routes.routeContacts)
 
-
-app.get('*', function(req, res) {
-  res.sendFile(path.join(__dirname, 'client/build/index.html'));
-})
-
 app.listen(PORT, () => console.log('server is running ' + PORT))
